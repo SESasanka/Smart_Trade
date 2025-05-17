@@ -25,42 +25,42 @@ public class SplashScreen extends javax.swing.JFrame {
         init();
         loadingAnimation();
     }
-    
-    private void init(){
+
+    private void init() {
         AppIconUtil.applyIcon(this);
-        FlatSVGIcon svgIcon = new FlatSVGIcon("lk/jiat/smarttrade/img/home.svg",50, 50);
+        FlatSVGIcon svgIcon = new FlatSVGIcon("lk/jiat/smarttrade/img/home.svg", 60, 60);
         logo.setIcon(svgIcon);
     }
-    
-    private void loadingAnimation(){
-       Thread t = new Thread(new Runnable() {
-           @Override
-           public void run() {
-               for(int i = 0; i <= 100; i++){
-                   jProgressBar1.setValue(i);
-                   if(i < 30){
-                       jLabel1.setText("Starting modules ");
-                   }else if(i > 30 && i < 50){
-                       jLabel1.setText("Database connection established... ");
-                   }else if( i > 80){
-                       jLabel1.setText("Done... ");
-                   }
-                   
-                   jLabel3.setText(i+"%");
-                   
-                   try {
-                       Thread.sleep(100);
-                   } catch (InterruptedException ex) {
-                       Logger.getLogger(SplashScreen.class.getName()).log(Level.SEVERE, null, ex);
-                   }
-               }
-               
-               new HomeScreen().setVisible(true);
-               splashScreen.dispose();
-               
-           }
-       });
-       t.start();
+
+    private void loadingAnimation() {
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i <= 100; i++) {
+                    jProgressBar1.setValue(i);
+                    if (i < 30) {
+                        jLabel1.setText("Starting modules ");
+                    } else if (i > 30 && i < 50) {
+                        jLabel1.setText("Database connection established... ");
+                    } else if (i > 80) {
+                        jLabel1.setText("Done... ");
+                    }
+
+                    jLabel3.setText(i + "%");
+
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(SplashScreen.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+
+                new HomeScreen().setVisible(true);
+                splashScreen.dispose();
+
+            }
+        });
+        t.start();
     }
 
     /**
@@ -143,7 +143,7 @@ public class SplashScreen extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     private static SplashScreen splashScreen;
-    
+
     public static void main(String args[]) {
 
         FlatIntelliJLaf.setup();
