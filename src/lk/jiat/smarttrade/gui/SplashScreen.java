@@ -5,8 +5,11 @@
 package lk.jiat.smarttrade.gui;
 
 import com.formdev.flatlaf.FlatIntelliJLaf;
+import com.formdev.flatlaf.extras.FlatSVGIcon;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import lk.jiat.smarttrade.util.AppIconUtil;
 
 /**
  *
@@ -19,7 +22,14 @@ public class SplashScreen extends javax.swing.JFrame {
      */
     public SplashScreen() {
         initComponents();
+        init();
         loadingAnimation();
+    }
+    
+    private void init(){
+        AppIconUtil.applyIcon(this);
+        FlatSVGIcon svgIcon = new FlatSVGIcon("lk/jiat/smarttrade/img/home.svg",50, 50);
+        logo.setIcon(svgIcon);
     }
     
     private void loadingAnimation(){
@@ -65,7 +75,7 @@ public class SplashScreen extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jProgressBar1 = new javax.swing.JProgressBar();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        logo = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -77,8 +87,6 @@ public class SplashScreen extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel1.setText("Loding...");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lk/jiat/smarttrade/img/store.png"))); // NOI18N
-
         jLabel3.setText("0%");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -89,7 +97,7 @@ public class SplashScreen extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(17, 17, 17)
                         .addComponent(jLabel1)
@@ -97,17 +105,17 @@ public class SplashScreen extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 246, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(238, 238, 238))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(229, 229, 229)
+                .addComponent(logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(241, 241, 241))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(145, 145, 145)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
+                .addGap(129, 129, 129)
+                .addComponent(logo, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
+                .addGap(139, 139, 139)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel3))
@@ -151,9 +159,9 @@ public class SplashScreen extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JProgressBar jProgressBar1;
+    private javax.swing.JLabel logo;
     // End of variables declaration//GEN-END:variables
 }
