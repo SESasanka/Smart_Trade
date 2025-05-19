@@ -8,7 +8,6 @@ import com.formdev.flatlaf.FlatIntelliJLaf;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.ImageIcon;
 import lk.jiat.smarttrade.util.AppIconUtil;
 
 /**

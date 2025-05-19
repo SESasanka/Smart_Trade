@@ -52,9 +52,9 @@
               <Component id="jLabel2" min="-2" pref="54" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
               <Component id="jButton1" min="-2" pref="51" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Component id="roundButton5" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -82,7 +82,7 @@
     </Component>
     <Component class="lk.jiat.smarttrade.component.RoundButton" name="roundButton5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="roundButton5"/>
+        <Property name="text" type="java.lang.String" value="Cary Button"/>
       </Properties>
     </Component>
   </SubComponents>

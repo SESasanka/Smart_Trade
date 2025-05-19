@@ -6,7 +6,6 @@ package lk.jiat.smarttrade.gui;
 
 import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.FlatLightLaf;
-import javax.swing.ImageIcon;
 import javax.swing.SwingUtilities;
 import lk.jiat.smarttrade.util.AppIconUtil;
 
@@ -56,7 +55,7 @@ public class HomeScreen extends javax.swing.JFrame {
 
         jButton1.setText("BTN");
 
-        roundButton5.setText("roundButton5");
+        roundButton5.setText("Cary Button");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -86,9 +85,9 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
+                .addGap(28, 28, 28)
                 .addComponent(roundButton5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(130, 130, 130))
+                .addGap(145, 145, 145))
         );
 
         pack();
