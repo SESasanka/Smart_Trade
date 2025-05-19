@@ -35,7 +35,10 @@
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="279" max="-2" attributes="0"/>
-              <Component id="jButton1" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="roundButton1" max="32767" attributes="0"/>
+                  <Component id="jButton1" max="32767" attributes="0"/>
+              </Group>
               <EmptySpace min="-2" pref="292" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -49,7 +52,9 @@
               <Component id="jLabel2" min="-2" pref="54" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
               <Component id="jButton1" min="-2" pref="51" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="191" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+              <Component id="roundButton1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -73,6 +78,11 @@
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
         <Property name="text" type="java.lang.String" value="BTN"/>
+      </Properties>
+    </Component>
+    <Component class="lk.jiat.smarttrade.component.RoundButton" name="roundButton1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="roundButton1"/>
       </Properties>
     </Component>
   </SubComponents>
