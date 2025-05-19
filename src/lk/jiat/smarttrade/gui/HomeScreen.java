@@ -29,7 +29,7 @@ public class HomeScreen extends javax.swing.JFrame {
     }
     
     private void updateComponents(){
-        jButton1.putClientProperty(FlatClientProperties.STYLE, "arc:20");
+        jButton1.putClientProperty(FlatClientProperties.STYLE, "arc:50");
         SwingUtilities.updateComponentTreeUI(this);
     }
     /**
