@@ -6,7 +6,13 @@ package lk.jiat.smarttrade.gui;
 
 import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.extras.FlatSVGIcon;
+import java.awt.CardLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
+import lk.jiat.smarttrade.panel.DashboadPanel;
+import lk.jiat.smarttrade.panel.InvoicePanel;
 import lk.jiat.smarttrade.util.AppIconUtil;
 
 /**
@@ -18,20 +24,40 @@ public class HomeScreen extends javax.swing.JFrame {
     /**
      * Creates new form HomeScreen
      */
+    private DashboadPanel dashboardPanel;
+    private InvoicePanel invoicePanel;
+    private CardLayout contentPanelLayout;
+
     public HomeScreen() {
         initComponents();
-        updateComponents();
         init();
+        loadPanel();
     }
-    
-    private void init(){
+
+    private void init() {
         AppIconUtil.applyIcon(this);
+        menuItemPanel.putClientProperty(FlatClientProperties.STYLE, "arc:20");
+        headerPanel.putClientProperty(FlatClientProperties.STYLE, "arc:20");
+        contentPanel.putClientProperty(FlatClientProperties.STYLE, "arc:20");
+//        logo.setIcon(new FlatSVGIcon("lk/jiat/smarttrade/img/home.svg", getWidth(), getHeight()));
+        logo.setIcon(new ImageIcon(getClass().getResource("/lk/jiat/smarttrade/img/store.png")));
+        dashBoard.setIcon(new FlatSVGIcon("lk/jiat/smarttrade/img/dashboard.svg", 20, 20));
+        invoice.setIcon(new FlatSVGIcon("lk/jiat/smarttrade/img/invoice.svg", 20, 20));
+        settings.setIcon(new FlatSVGIcon("lk/jiat/smarttrade/img/setting.svg", 20, 20));
     }
-    
-    private void updateComponents(){
-        jButton1.putClientProperty(FlatClientProperties.STYLE, "arc:50");
-        SwingUtilities.updateComponentTreeUI(this);
+
+    private void loadPanel() {
+        if (contentPanelLayout == null && contentPanel.getLayout() instanceof CardLayout) {
+            this.contentPanelLayout = (CardLayout) contentPanel.getLayout();
+        }
+        this.dashboardPanel = new DashboadPanel();
+        this.invoicePanel = new InvoicePanel();
+
+        this.contentPanel.add(dashboardPanel, "dashboard_panel");
+        this.contentPanel.add(invoicePanel, "invoice_panel");
+        SwingUtilities.updateComponentTreeUI(contentPanel);
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,68 +67,178 @@ public class HomeScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        menuItemPanel = new javax.swing.JPanel();
+        logo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        roundButton1 = new lk.jiat.smarttrade.component.RoundButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        dashBoard = new javax.swing.JButton();
+        invoice = new javax.swing.JButton();
+        settings = new javax.swing.JButton();
+        headerPanel = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        contentPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Smart Trade - Home");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setText("Welcome Home Page");
+        menuItemPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lk/jiat/smarttrade/img/store.png"))); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(244, 140, 6));
+        jLabel2.setText("Smart Trade");
 
-        jButton1.setBackground(new java.awt.Color(106, 4, 15));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("BTN");
+        jSeparator1.setBackground(new java.awt.Color(102, 102, 102));
 
-        roundButton1.setBackground(new java.awt.Color(244, 140, 6));
-        roundButton1.setForeground(new java.awt.Color(255, 255, 255));
-        roundButton1.setText("Cart");
+        dashBoard.setBackground(new java.awt.Color(255, 255, 255));
+        dashBoard.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        dashBoard.setForeground(new java.awt.Color(0, 0, 0));
+        dashBoard.setText("Dashboard");
+        dashBoard.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        dashBoard.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        dashBoard.setIconTextGap(5);
+        dashBoard.setMargin(new java.awt.Insets(2, 16, 3, 14));
+        dashBoard.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dashBoardActionPerformed(evt);
+            }
+        });
+
+        invoice.setBackground(new java.awt.Color(255, 255, 255));
+        invoice.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        invoice.setForeground(new java.awt.Color(0, 0, 0));
+        invoice.setText("Invoice");
+        invoice.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        invoice.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        invoice.setIconTextGap(5);
+        invoice.setMargin(new java.awt.Insets(2, 16, 3, 14));
+        invoice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                invoiceActionPerformed(evt);
+            }
+        });
+
+        settings.setBackground(new java.awt.Color(255, 255, 255));
+        settings.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        settings.setForeground(new java.awt.Color(0, 0, 0));
+        settings.setText("Settings");
+        settings.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        settings.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        settings.setIconTextGap(5);
+        settings.setMargin(new java.awt.Insets(2, 16, 3, 14));
+
+        javax.swing.GroupLayout menuItemPanelLayout = new javax.swing.GroupLayout(menuItemPanel);
+        menuItemPanel.setLayout(menuItemPanelLayout);
+        menuItemPanelLayout.setHorizontalGroup(
+            menuItemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menuItemPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(menuItemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(menuItemPanelLayout.createSequentialGroup()
+                        .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2)
+                        .addGap(0, 9, Short.MAX_VALUE))
+                    .addComponent(dashBoard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(invoice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(settings, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        menuItemPanelLayout.setVerticalGroup(
+            menuItemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menuItemPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(menuItemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(menuItemPanelLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(dashBoard, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(invoice, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(settings, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        headerPanel.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout headerPanelLayout = new javax.swing.GroupLayout(headerPanel);
+        headerPanel.setLayout(headerPanelLayout);
+        headerPanelLayout.setHorizontalGroup(
+            headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        headerPanelLayout.setVerticalGroup(
+            headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 120, Short.MAX_VALUE)
+        );
+
+        jScrollPane2.setBorder(null);
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        contentPanel.setBackground(new java.awt.Color(255, 255, 255));
+        contentPanel.setLayout(new java.awt.CardLayout());
+        jScrollPane2.setViewportView(contentPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(229, 229, 229)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(240, 240, 240))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(309, 309, 309)
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(327, 327, 327))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(279, 279, 279)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(roundButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(292, 292, 292))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(menuItemPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(headerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 587, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(97, 97, 97)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, Short.MAX_VALUE)
-                .addGap(52, 52, 52)
-                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
-                .addGap(33, 33, 33)
-                .addComponent(roundButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(125, 125, 125))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(menuItemPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(headerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2)))
+                .addContainerGap())
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+    }//GEN-LAST:event_formWindowOpened
+
+    private void dashBoardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashBoardActionPerformed
+        // TODO add your handling code here:
+        this.contentPanelLayout.show(contentPanel, "dashboard_panel");
+    }//GEN-LAST:event_dashBoardActionPerformed
+
+    private void invoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_invoiceActionPerformed
+        // TODO add your handling code here:
+        this.contentPanelLayout.show(contentPanel, "invoice_panel");
+    }//GEN-LAST:event_invoiceActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        
+
         FlatLightLaf.setup();
 
         /* Create and display the form */
@@ -114,9 +250,16 @@ public class HomeScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel contentPanel;
+    private javax.swing.JButton dashBoard;
+    private javax.swing.JPanel headerPanel;
+    private javax.swing.JButton invoice;
     private javax.swing.JLabel jLabel2;
-    private lk.jiat.smarttrade.component.RoundButton roundButton1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel logo;
+    private javax.swing.JPanel menuItemPanel;
+    private javax.swing.JButton settings;
     // End of variables declaration//GEN-END:variables
+
 }
