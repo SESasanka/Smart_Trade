@@ -49,11 +49,11 @@
               <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
               <Component id="jLabel1" max="32767" attributes="0"/>
               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-              <Component id="jLabel2" min="-2" pref="54" max="-2" attributes="0"/>
+              <Component id="jLabel2" pref="54" max="32767" attributes="0"/>
               <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-              <Component id="jButton1" min="-2" pref="51" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-              <Component id="roundButton1" min="-2" max="-2" attributes="0"/>
+              <Component id="jButton1" pref="51" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              <Component id="roundButton1" min="-2" pref="33" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -63,7 +63,7 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="24" style="0"/>
+          <Font name="Segoe UI" size="24" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Welcome Home Page"/>
       </Properties>
@@ -77,12 +77,24 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="f" green="4" red="6a" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="BTN"/>
       </Properties>
     </Component>
     <Component class="lk.jiat.smarttrade.component.RoundButton" name="roundButton1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="roundButton1"/>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="6" green="8c" red="f4" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Cart"/>
       </Properties>
     </Component>
   </SubComponents>

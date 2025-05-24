@@ -26,9 +26,10 @@ public class SplashScreen extends javax.swing.JFrame {
     }
 
     private void init() {
+//        AppIconUtil.applyIcon(this);
+//        FlatSVGIcon svgIcon = new FlatSVGIcon("lk/jiat/smarttrade/img/logo.svg", 60, 60);
+//        logo.setIcon(svgIcon);
         AppIconUtil.applyIcon(this);
-        FlatSVGIcon svgIcon = new FlatSVGIcon("lk/jiat/smarttrade/img/home.svg", 60, 60);
-        logo.setIcon(svgIcon);
     }
 
     private void loadingAnimation() {
@@ -86,6 +87,8 @@ public class SplashScreen extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel1.setText("Loding...");
 
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lk/jiat/smarttrade/img/store.png"))); // NOI18N
+
         jLabel3.setText("0%");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -104,17 +107,17 @@ public class SplashScreen extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(229, 229, 229)
-                .addComponent(logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(241, 241, 241))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(logo)
+                .addGap(246, 246, 246))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(129, 129, 129)
-                .addComponent(logo, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
-                .addGap(139, 139, 139)
+                .addGap(155, 155, 155)
+                .addComponent(logo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel3))
