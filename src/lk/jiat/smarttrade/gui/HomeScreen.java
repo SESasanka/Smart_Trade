@@ -13,6 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import lk.jiat.smarttrade.panel.DashboadPanel;
 import lk.jiat.smarttrade.panel.InvoicePanel;
+import lk.jiat.smarttrade.panel.ProductPanel;
 import lk.jiat.smarttrade.util.AppIconUtil;
 
 /**
@@ -26,7 +27,9 @@ public class HomeScreen extends javax.swing.JFrame {
      */
     private DashboadPanel dashboardPanel;
     private InvoicePanel invoicePanel;
+    private ProductPanel productPanel;
     private CardLayout contentPanelLayout;
+    private ProductPanel productpanel;
 
     public HomeScreen() {
         initComponents();
@@ -43,6 +46,7 @@ public class HomeScreen extends javax.swing.JFrame {
         logo.setIcon(new ImageIcon(getClass().getResource("/lk/jiat/smarttrade/img/store.png")));
         dashBoard.setIcon(new FlatSVGIcon("lk/jiat/smarttrade/img/dashboard.svg", 20, 20));
         invoice.setIcon(new FlatSVGIcon("lk/jiat/smarttrade/img/invoice.svg", 20, 20));
+        productBtn.setIcon(new FlatSVGIcon("lk/jiat/smarttrade/img/products.svg", 20, 20));
         settings.setIcon(new FlatSVGIcon("lk/jiat/smarttrade/img/setting.svg", 20, 20));
     }
 
@@ -52,9 +56,15 @@ public class HomeScreen extends javax.swing.JFrame {
         }
         this.dashboardPanel = new DashboadPanel();
         this.invoicePanel = new InvoicePanel();
+        this.productPanel = new ProductPanel(this);
+        
+         this.dashboardPanel.putClientProperty(FlatClientProperties.STYLE, "arc:20");
+         this.invoicePanel.putClientProperty(FlatClientProperties.STYLE, "arc:20");
+         this.productPanel.putClientProperty(FlatClientProperties.STYLE, "arc:20");
 
         this.contentPanel.add(dashboardPanel, "dashboard_panel");
         this.contentPanel.add(invoicePanel, "invoice_panel");
+        this.contentPanel.add(productPanel, "product_panel");
         SwingUtilities.updateComponentTreeUI(contentPanel);
     }
 
@@ -74,6 +84,7 @@ public class HomeScreen extends javax.swing.JFrame {
         dashBoard = new javax.swing.JButton();
         invoice = new javax.swing.JButton();
         settings = new javax.swing.JButton();
+        productBtn = new javax.swing.JButton();
         headerPanel = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         contentPanel = new javax.swing.JPanel();
@@ -131,6 +142,20 @@ public class HomeScreen extends javax.swing.JFrame {
         settings.setIconTextGap(5);
         settings.setMargin(new java.awt.Insets(2, 16, 3, 14));
 
+        productBtn.setBackground(new java.awt.Color(255, 255, 255));
+        productBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        productBtn.setForeground(new java.awt.Color(0, 0, 0));
+        productBtn.setText("Products");
+        productBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        productBtn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        productBtn.setIconTextGap(5);
+        productBtn.setMargin(new java.awt.Insets(2, 16, 3, 14));
+        productBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                productBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout menuItemPanelLayout = new javax.swing.GroupLayout(menuItemPanel);
         menuItemPanel.setLayout(menuItemPanelLayout);
         menuItemPanelLayout.setHorizontalGroup(
@@ -146,7 +171,8 @@ public class HomeScreen extends javax.swing.JFrame {
                         .addGap(0, 9, Short.MAX_VALUE))
                     .addComponent(dashBoard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(invoice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(settings, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(settings, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(productBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         menuItemPanelLayout.setVerticalGroup(
@@ -164,7 +190,9 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addComponent(dashBoard, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(invoice, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 288, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(productBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 242, Short.MAX_VALUE)
                 .addComponent(settings, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -185,7 +213,6 @@ public class HomeScreen extends javax.swing.JFrame {
         jScrollPane2.setBorder(null);
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        contentPanel.setBackground(new java.awt.Color(255, 255, 255));
         contentPanel.setLayout(new java.awt.CardLayout());
         jScrollPane2.setViewportView(contentPanel);
 
@@ -234,6 +261,11 @@ public class HomeScreen extends javax.swing.JFrame {
         this.contentPanelLayout.show(contentPanel, "invoice_panel");
     }//GEN-LAST:event_invoiceActionPerformed
 
+    private void productBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productBtnActionPerformed
+        // TODO add your handling code here:
+        this.contentPanelLayout.show(contentPanel, "product_panel");
+    }//GEN-LAST:event_productBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -259,6 +291,7 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel logo;
     private javax.swing.JPanel menuItemPanel;
+    private javax.swing.JButton productBtn;
     private javax.swing.JButton settings;
     // End of variables declaration//GEN-END:variables
 
