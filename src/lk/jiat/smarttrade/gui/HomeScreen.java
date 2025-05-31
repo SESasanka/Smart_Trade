@@ -29,7 +29,6 @@ public class HomeScreen extends javax.swing.JFrame {
     private InvoicePanel invoicePanel;
     private ProductPanel productPanel;
     private CardLayout contentPanelLayout;
-    private ProductPanel productpanel;
 
     public HomeScreen() {
         initComponents();
